@@ -97,7 +97,7 @@ AuditLogs
     Result
 | order by TimeGenerated desc
 ```
-
+<img width="1234" height="496" alt="image" src="https://github.com/user-attachments/assets/f37e1c55-b375-45f3-906c-4129f79da695" />
 
 ## 🔎 Account Remediation Verification & Ongoing Monitoring
 
@@ -113,6 +113,8 @@ As part of the incident containment process, the following actions were verified
 - ✅ Containment action verified  
 - ✅ No additional malicious activity observed  
 - 🔄 Ongoing monitoring active
+
+
 
 
   
