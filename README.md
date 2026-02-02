@@ -79,8 +79,40 @@ SigninLogs
 
 * Immediate risk contained
 * Ongoing monitoring in place
+* 
+Validation — Audit Log Review
+
+```kql
+AuditLogs
+| where OperationName in (
+    "Change user password",
+    "Reset user password"
+)
+| extend TargetUser = tostring(TargetResources[0].userPrincipalName)
+| project
+    TimeGenerated,
+    OperationName,
+    TargetUser,
+    InitiatedBy = tostring(InitiatedBy.user.userPrincipalName),
+    Result
+| order by TimeGenerated desc
+```
 
 
+## 🔎 Account Remediation Verification & Ongoing Monitoring
+
+As part of the incident containment process, the following actions were verified:
+
+- The affected user’s password was successfully reset.
+- Azure Audit Logs were reviewed to confirm the password reset was properly recorded and completed.
+- No unauthorized or unexpected password changes were detected during log analysis.
+- The account remains under continuous monitoring to identify any further authentication attempts or suspicious activity.
+
+## 📌 Status
+
+- ✅ Containment action verified  
+- ✅ No additional malicious activity observed  
+- 🔄 Ongoing monitoring active
 
 
   
